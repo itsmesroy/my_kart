@@ -1,0 +1,20 @@
+/* Rectangle Image */
+.rectangle-img {
+    width: 900px; /* Adjust to desired rectangle width */
+    height: 200px; /*Adjust to desired rectangle height */
+    object-fit: cover; /* Makes the image fill the rectangle while preserving its aspect ratio */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  /* Modal Image for Fullscreen */
+  .fullscreen-img {
+    
+    width: 100%; /* Full viewport width */
+    height:auto; /* Full viewport height */
+    object-fit:contain; /* Preserve aspect ratio */
+    
+    /* background-color: rgba(0, 0, 0, 0.9); Dark background for modal effect */
+    cursor: pointer;
+  }
+  
