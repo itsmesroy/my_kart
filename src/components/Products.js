@@ -7,6 +7,6 @@ export default function Products(props) {
     props.productList.map((product, i)=>{
       return <Product product={product} key={i}/>
     })
-
   )
 }
+
