@@ -1,27 +1,58 @@
-import React from 'react'
+import React from "react";
 
 class AddItem extends React.Component {
-    state = {  } 
-    render() { 
-        return (
-            <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-        );
+  state = {};
+  constructor(props){
+    super(props);
+    this.state={
+        productName:"",
+        productPrice:0,
     }
+  }
+  render() {
+    return (
+      <form className="row m-4" onSubmit={(e)=>{
+        e.preventDefault();
+        this.props.addItem(this.state.productName,Number(this.state.productPrice));
+   
+      }
+      }>
+        <div className=" mb-3 col-4 col-4">
+          <label htmlFor="Name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text "
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="productName"
+            onChange={(e)=>{
+                this.setState({productName:e.currentTarget.value})
+            }}
+          />          
+        </div>
+        <div className="mb-3 col-4">
+          <label htmlFor="price" className="form-label">
+            Price
+          </label>
+          <input
+            type="number"
+            className="form-control"
+            id="price"
+            name="productPrice"
+            onChange={(e)=>{
+                this.setState({productPrice: Number(e.currentTarget.value)})
+            }}
+          />
+        </div>
+        
+        <button type="submit" className="btn btn-primary col-3">
+          Add Item
+        </button>
+      </form>
+    );
+  }
 }
- 
+
 export default AddItem;

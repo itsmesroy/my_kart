@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Products from "./components/Products";
 import Bodyimg from "./components/body";
 import Footer from "./components/Footer";
+import AddItem from "./components/AddItem"
 import React, { useState } from "react";
 
 function App() {
@@ -69,9 +70,19 @@ function App() {
     setProducts(newProducts);
     setTotalAmount(newTotalAmount);
   }
+
+  const addItem=(name,price)=>{
+    let newProducts= [...products];
+    newProducts.push({name,price,quantity:0});
+
+    setProducts(newProducts);
+    
+  }
+    
   return (
     <>
       <NavBar />
+      <AddItem addItem={addItem}/>
       <main className="container mt-5">
         <Products
           productList={products}

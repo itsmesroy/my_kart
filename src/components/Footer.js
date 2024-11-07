@@ -5,7 +5,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div>
-        <div className="row ">
+        <div className="row mt-5">
           <button className="btn btn-danger col-2" onClick={this.props.handleReset}>
             Reset
           </button>
@@ -16,13 +16,13 @@ class Footer extends React.Component {
         </div>
 
         <div className="card ">
-          <div className="card-header text-center mt-4 fixed-bottom">
+          <div className="card-header text-center mt-4 ">
             @FlourWish
           </div>
-          <div className="card-body fixed-bottom">
-            <blockquote className="blockquote mb-0 fixed-bottom">
+          <div className="card-body f">
+            <blockquote className="blockquote mb-0 ">
               <p>Explore the Best Bakery in Town</p>
-              <footer className="blockquote-footer fixed-bottom">
+              <footer className="blockquote-footer ">
                 by Sroweta Kar
               </footer>
             </blockquote>
