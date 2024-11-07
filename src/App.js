@@ -52,12 +52,23 @@ function App() {
     setProducts(newProducts);
   };
 
-const handleReset=()=>{
-const resetProducts= products.map(product=>({...product,quantity:0}));
-setProducts(resetProducts);
-setTotalAmount(0);
- };
- 
+  const handleReset = () => {
+    const resetProducts = products.map((product) => ({
+      ...product,
+      quantity: 0,
+    }));
+    setProducts(resetProducts);
+    setTotalAmount(0);
+  };
+
+  const removeItem=(index)=>{
+    let newProducts=[...products];
+    let newTotalAmount= totalAmount;
+    newTotalAmount-= newProducts[index].quantity*newProducts[index].price;
+    newProducts.splice(index,1);
+    setProducts(newProducts);
+    setTotalAmount(newTotalAmount);
+  }
   return (
     <>
       <NavBar />
@@ -66,10 +77,11 @@ setTotalAmount(0);
           productList={products}
           incrementQuantity={incrementQuantity}
           decrementQuantity={decrementQuantity}
+          removeItem={removeItem}
         />
       </main>
       {/* <Bodyimg/> */}
-      <Footer totalAmount={totalAmount} handleReset={handleReset}/>
+      <Footer totalAmount={totalAmount} handleReset={handleReset} />
     </>
   );
 }

@@ -4,9 +4,12 @@ import Product from './Product.js'
 
 export default function Products(props) {
   return (
+    props.productList>0 ?
     props.productList.map((product, i)=>{
-      return <Product product={product} key={i} incrementQuantity={props.incrementQuantity} decrementQuantity={props.decrementQuantity} index={i}/>
+      return <Product product={product} key={i} incrementQuantity={props.incrementQuantity} decrementQuantity={props.decrementQuantity} removeItem={props.removeItem} index={i}/>
     })
+    :
+  <h2>No products Selected</h2>
   )
 }
 
